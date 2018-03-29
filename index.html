@@ -1,45 +1,47 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
- <head>
-	
-<title>MIRAMAR QR</title>
-	<script>
-		function miFuncion() {
-			alert('Busque el marcador junrto al QR');
-			document.getElementById('arjsDebugUIContainer').style.display = 'none';
-		}
-	</script>
-	<!-- include aframe -->
-<script src="AR.js-master / aframe /build/aframe.js"></script>
-<!-- include aframe-ar.js -->
-<script src="AR.js-master / aframe /build/aframe-ar.js"></script>
-</head>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Video</title>
+    <meta name="description" content="Video - A-Frame">
+    <script src="../../../dist/aframe-master.js"></script>
+  </head>
+  <body>
+    <a-scene stats>
+      <a-assets>
+        <video id="videoParis" preload="auto"
+               src="https://ucarecdn.com/4130c599-445f-4e76-9052-49978e972641/"
+               width="160" height="90" autoplay loop="true"
+               crossOrigin="anonymous"></video>
+        <video id="videoHypercube" preload="auto"
+               src="https://ucarecdn.com/210dd043-dcd3-446d-9b36-ad19471f6273/"
+               width="160" height="90" autoplay loop="true"
+               crossOrigin="anonymous"></video>
+      </a-assets>
 
+      <!--
+      SOURCE
+      Title:  Paris Sunset - Timelapse (Public Domain)
+      Author: Mythomen <https://vimeo.com/mythomen>
+      URL:    https://vimeo.com/147309712
+      -->
+      <a-entity material="shader: flat; src: #videoParis"
+                geometry="primitive: plane; width: 160; height: 90;"
+                position="0 60 -250"
+                rotation="0 35 0">
+      </a-entity>
 
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;' onload='miFuncion();'>
-
-
-
-	<!-- enable artoolkit on this scene -->
-	<a-scene  embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
-       
-
-
-
-
-       <a-assets>
-    <video id="anibal" autoplay loop="true" src="https://drive.google.com/open?id=1PThX2CmMLzC-AHVzAPQadJycHttLlzu2"></video>
-  </a-assets>
-
-  <!-- Using the asset management system. -->
-  <a-video src="#anibal" width="16" height="9" position="0 0 -20"></a-video>
-
-  <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
-  <a-video src="https://drive.google.com/open?id=1PThX2CmMLzC-AHVzAPQadJycHttLlzu2"></a-video>
-
-		<a-marker-camera preset='hiro'></a-marker-camera>
-	</a-scene>
-</body>
+      <!--
+      SOURCE
+      Title:  Hypercube Study
+      Author: Dan Allison <https://vimeo.com/danallison>
+      URL:    https://vimeo.com/5081158
+      -->
+      <a-entity material="shader: flat; src: #videoHypercube"
+                geometry="primitive: plane; width: 160; height: 90"
+                position="0 -60 -200"
+                rotation="0 -35 0">
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
