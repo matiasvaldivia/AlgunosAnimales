@@ -1,23 +1,43 @@
 <!DOCTYPE html>
-<!-- include aframe -->
-<script src="aframe/examples/vendor/aframe/build/aframe.js"></script>
-<!-- include aframe-ar.js -->
-<script src="aframe/build/aframe-ar.js"></script>
-
-<body style='margin : 0px; overflow: hidden; font-family: Monospace;'><div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
-	<a href="https://github.com/jeromeetienne/AR.js/" target="_blank">AR.js</a> - mobile performance in a-frame
-	<br/>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+ <head>
 	
-</div>
-	<!-- enable artoolkit on this scene -->
-	<a-scene stats embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
+<title>MIRAMAR QR</title>
+	<script>
+		function miFuncion() {
+			alert('Busque el marcador junrto al QR');
+			document.getElementById('arjsDebugUIContainer').style.display = 'none';
+		}
+	</script>
+	<!-- include aframe -->
+<script src="build/aframe.js"></script>
+<!-- include aframe-ar.js -->
+<script src="build/aframe-ar.js"></script>
+</head>
 
-		<!-- define the object which gonna be put on this marker  -->
-		<a-box position='0 0.5 0' material='opacity: 0.5; side: double'>
-			<a-torus-knot radius='0.26' radius-tubular='0.05'>
-				<a-animation attribute="rotation" to="360 0 0" dur="3000" easing='linear' repeat="indefinite"></a-animation>
-			</a-torus-knot>
-		</a-box>
+
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;' onload='miFuncion();'>
+
+
+
+	<!-- enable artoolkit on this scene -->
+	<a-scene  embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
+       
+
+
+
+
+       <a-assets>
+    <video id="anibal" autoplay loop="true" src="https://drive.google.com/open?id=1PThX2CmMLzC-AHVzAPQadJycHttLlzu2"></video>
+  </a-assets>
+
+  <!-- Using the asset management system. -->
+  <a-video src="#anibal" width="16" height="9" position="0 0 -20"></a-video>
+
+  <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
+  <a-video src="https://drive.google.com/open?id=1PThX2CmMLzC-AHVzAPQadJycHttLlzu2"></a-video>
 
 		<a-marker-camera preset='hiro'></a-marker-camera>
 	</a-scene>
